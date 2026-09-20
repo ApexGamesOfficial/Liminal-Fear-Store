@@ -3739,3 +3739,1184 @@ select:focus-visible {
   }
 
 }
+/* =========================================================
+   COLLECTIONS PAGE — V0.2
+   ========================================================= */
+
+
+/* =========================================================
+   COLLECTIONS HERO
+   ========================================================= */
+
+.collections-hero {
+  position: relative;
+
+  min-height: 720px;
+
+  padding:
+    170px
+    max(
+      30px,
+      calc(
+        (100vw - var(--page-width)) / 2
+        + 70px
+      )
+    )
+    80px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      110deg,
+      #050504 0%,
+      #0a0a07 52%,
+      #18170d 100%
+    );
+
+  color: var(--white);
+}
+
+
+.collections-hero-noise {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.045;
+
+  pointer-events: none;
+
+  background-image:
+    repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      rgba(255, 255, 255, 0.5) 1px,
+      transparent 2px
+    );
+
+  background-size: 6px 6px;
+}
+
+
+.collections-hero-glow {
+  position: absolute;
+
+  width: 750px;
+  height: 750px;
+
+  right: -140px;
+  top: -70px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(234, 211, 30, 0.21),
+      rgba(234, 211, 30, 0.06) 35%,
+      transparent 68%
+    );
+
+  filter: blur(15px);
+}
+
+
+.collections-hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+
+.collections-eyebrow {
+  margin: 0 0 20px;
+
+  color: var(--yellow);
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 0.2em;
+}
+
+
+.collections-hero h1 {
+  margin: 0;
+
+  font-size:
+    clamp(72px, 9vw, 140px);
+
+  font-weight: 900;
+
+  line-height: 0.79;
+
+  letter-spacing: -0.075em;
+}
+
+
+.collections-hero h1 span {
+  display: block;
+
+  color: var(--yellow);
+}
+
+
+.collections-intro {
+  max-width: 500px;
+
+  margin: 31px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.62);
+
+  font-size: 15px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   HERO JUMP NAV
+   ========================================================= */
+
+.collections-jump {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 65px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+}
+
+
+.collections-jump a {
+  min-height: 42px;
+
+  padding: 0 17px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.20);
+
+  border-radius: 999px;
+
+  color:
+    rgba(255, 255, 255, 0.68);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.1em;
+
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+
+.collections-jump a:hover {
+  background: var(--yellow);
+
+  color: var(--black);
+
+  border-color: var(--yellow);
+
+  box-shadow:
+    0 0 22px
+    rgba(234, 211, 30, 0.25);
+}
+
+
+/* =========================================================
+   COLLECTION SHOWCASE
+   ========================================================= */
+
+.collection-showcase {
+  position: relative;
+
+  min-height: 720px;
+
+  padding:
+    90px
+    max(
+      30px,
+      calc(
+        (100vw - var(--page-width)) / 2
+        + 70px
+      )
+    );
+
+  display: grid;
+
+  grid-template-columns:
+    70px
+    minmax(0, 0.85fr)
+    minmax(420px, 1.15fr);
+
+  align-items: center;
+
+  gap: 45px;
+
+  scroll-margin-top: 110px;
+
+  overflow: hidden;
+}
+
+
+.collection-light {
+  background: var(--paper);
+
+  color: var(--black);
+}
+
+
+.collection-dark {
+  background: #080806;
+
+  color: var(--white);
+}
+
+
+.collection-yellow {
+  background: var(--yellow);
+
+  color: var(--black);
+}
+
+
+/* =========================================================
+   COLLECTION NUMBER
+   ========================================================= */
+
+.collection-number {
+  align-self: start;
+
+  padding-top: 11px;
+
+  color: #8a8981;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 0.13em;
+}
+
+
+.collection-dark .collection-number {
+  color:
+    rgba(255, 255, 255, 0.34);
+}
+
+
+.collection-yellow .collection-number {
+  color:
+    rgba(0, 0, 0, 0.40);
+}
+
+
+/* =========================================================
+   COLLECTION COPY
+   ========================================================= */
+
+.collection-copy {
+  position: relative;
+  z-index: 2;
+}
+
+
+.collection-type {
+  margin: 0 0 15px;
+
+  color: #88877f;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+}
+
+
+.collection-dark .collection-type {
+  color: var(--yellow);
+}
+
+
+.collection-yellow .collection-type {
+  color:
+    rgba(0, 0, 0, 0.55);
+}
+
+
+.collection-copy h2 {
+  margin: 0;
+
+  font-size:
+    clamp(58px, 6.5vw, 98px);
+
+  font-weight: 900;
+
+  line-height: 0.86;
+
+  letter-spacing: -0.075em;
+}
+
+
+.collection-description {
+  max-width: 440px;
+
+  margin:
+    25px
+    0
+    0;
+
+  color: #77766f;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+
+.collection-dark
+.collection-description {
+  color:
+    rgba(255, 255, 255, 0.53);
+}
+
+
+.collection-yellow
+.collection-description {
+  color:
+    rgba(0, 0, 0, 0.61);
+}
+
+
+/* =========================================================
+   COLLECTION TAGS
+   ========================================================= */
+
+.collection-characters {
+  margin:
+    27px
+    0
+    30px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 7px;
+}
+
+
+.collection-characters span {
+  min-height: 34px;
+
+  padding: 0 12px;
+
+  display: inline-flex;
+  align-items: center;
+
+  border:
+    1px solid
+    rgba(0, 0, 0, 0.14);
+
+  border-radius: 999px;
+
+  color: #6d6c65;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.09em;
+}
+
+
+.collection-dark
+.collection-characters span {
+  border-color:
+    rgba(255, 255, 255, 0.15);
+
+  color:
+    rgba(255, 255, 255, 0.55);
+}
+
+
+.collection-copy >
+.button {
+  margin-top: 30px;
+}
+
+
+.collection-characters +
+.button {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   COLLECTION VISUAL
+   ========================================================= */
+
+.collection-visual {
+  position: relative;
+
+  min-height: 540px;
+
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+
+  border-radius: 17px;
+
+  border:
+    1px solid
+    rgba(0, 0, 0, 0.11);
+}
+
+
+.collection-dark
+.collection-visual {
+  border-color:
+    rgba(255, 255, 255, 0.12);
+}
+
+
+.collection-yellow
+.collection-visual {
+  border-color:
+    rgba(0, 0, 0, 0.18);
+}
+
+
+.plush-visual {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(234, 211, 30, 0.25),
+      transparent 32%
+    ),
+    linear-gradient(
+      145deg,
+      #171710,
+      #060605
+    );
+}
+
+
+.apparel-visual {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(234, 211, 30, 0.18),
+      transparent 32%
+    ),
+    #10100d;
+}
+
+
+.sticker-visual {
+  background:
+    #e6e4d9;
+}
+
+
+.drinkware-visual {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(234, 211, 30, 0.23),
+      transparent 32%
+    ),
+    linear-gradient(
+      145deg,
+      #1a1a13,
+      #080806
+    );
+}
+
+
+/* =========================================================
+   VISUAL GRID
+   ========================================================= */
+
+.collection-visual-grid {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.32;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    50px
+    50px;
+}
+
+
+.collection-yellow
+.collection-visual-grid {
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.07) 1px,
+      transparent 1px
+    );
+}
+
+
+/* =========================================================
+   PLACEHOLDER OBJECTS
+   ========================================================= */
+
+.collection-object {
+  position: relative;
+  z-index: 2;
+
+  width: 235px;
+  height: 310px;
+
+  display: grid;
+  place-items: center;
+
+  background: #070705;
+
+  color: var(--yellow);
+
+  border-radius:
+    34px
+    34px
+    25px
+    25px;
+
+  font-size: 45px;
+  font-weight: 900;
+
+  box-shadow:
+    0 25px 70px
+    rgba(0, 0, 0, 0.35),
+
+    0 0 45px
+    rgba(234, 211, 30, 0.10);
+}
+
+
+.collection-object-large {
+  width: 250px;
+  height: 330px;
+
+  border-radius: 45%;
+}
+
+
+.collection-visual-label {
+  position: absolute;
+
+  left: 22px;
+  bottom: 19px;
+
+  z-index: 3;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.16em;
+}
+
+
+.sticker-visual
+.collection-visual-label {
+  color:
+    rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================================
+   STICKER PLACEHOLDERS
+   ========================================================= */
+
+.sticker-shape {
+  position: absolute;
+  z-index: 2;
+
+  display: grid;
+  place-items: center;
+
+  background: var(--black);
+  color: var(--yellow);
+
+  border:
+    7px solid
+    #fff;
+
+  font-weight: 900;
+
+  box-shadow:
+    0 15px 35px
+    rgba(0, 0, 0, 0.20);
+}
+
+
+.sticker-one {
+  width: 155px;
+  height: 155px;
+
+  left: 17%;
+  top: 18%;
+
+  border-radius: 50%;
+
+  transform: rotate(-11deg);
+
+  font-size: 29px;
+}
+
+
+.sticker-two {
+  width: 135px;
+  height: 180px;
+
+  right: 19%;
+  top: 17%;
+
+  border-radius: 22px;
+
+  transform: rotate(9deg);
+
+  font-size: 40px;
+}
+
+
+.sticker-three {
+  width: 210px;
+  height: 90px;
+
+  left: 31%;
+  bottom: 17%;
+
+  border-radius: 12px;
+
+  transform: rotate(-4deg);
+
+  font-size: 24px;
+}
+
+
+/* =========================================================
+   MUG PLACEHOLDER
+   ========================================================= */
+
+.collection-mug {
+  position: relative;
+  z-index: 2;
+
+  width: 240px;
+  height: 255px;
+
+  display: grid;
+  place-items: center;
+
+  background: var(--white);
+  color: var(--black);
+
+  border-radius:
+    15px
+    15px
+    40px
+    40px;
+
+  box-shadow:
+    0 30px 65px
+    rgba(0, 0, 0, 0.34);
+}
+
+
+.collection-mug::after {
+  content: "";
+
+  position: absolute;
+
+  right: -80px;
+  top: 54px;
+
+  width: 95px;
+  height: 115px;
+
+  border:
+    25px solid
+    var(--white);
+
+  border-left: 0;
+
+  border-radius:
+    0
+    65px
+    65px
+    0;
+}
+
+
+.collection-mug span {
+  font-size: 39px;
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   CHARACTER COLLECTIONS
+   ========================================================= */
+
+.character-collection-section {
+  padding:
+    110px
+    max(
+      30px,
+      calc(
+        (100vw - var(--page-width)) / 2
+        + 70px
+      )
+    );
+
+  background: #080806;
+  color: var(--white);
+}
+
+
+.character-collection-heading {
+  margin-bottom: 45px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+
+.character-collection-heading p {
+  margin: 0 0 13px;
+
+  color: var(--yellow);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+}
+
+
+.character-collection-heading h2 {
+  margin: 0;
+
+  font-size:
+    clamp(44px, 5vw, 75px);
+
+  font-weight: 900;
+
+  line-height: 0.89;
+
+  letter-spacing: -0.07em;
+}
+
+
+.character-collection-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+
+.character-collection-card {
+  overflow: hidden;
+
+  background: #10100d;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.11);
+
+  border-radius: 15px;
+
+  transition:
+    border-color 170ms ease,
+    box-shadow 170ms ease;
+}
+
+
+.character-collection-card:hover {
+  border-color: var(--yellow);
+
+  box-shadow:
+    0 0 0 1px
+    rgba(234, 211, 30, 0.25),
+
+    0 0 18px
+    rgba(234, 211, 30, 0.15),
+
+    0 0 40px
+    rgba(234, 211, 30, 0.06);
+}
+
+
+.character-collection-art {
+  min-height: 430px;
+
+  display: grid;
+  place-items: center;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(234, 211, 30, 0.17),
+      transparent 29%
+    ),
+    linear-gradient(
+      145deg,
+      #181811,
+      #070705
+    );
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.09);
+}
+
+
+.character-collection-art span {
+  width: 120px;
+  height: 120px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(234, 211, 30, 0.25);
+
+  border-radius: 50%;
+
+  color:
+    rgba(234, 211, 30, 0.42);
+
+  font-size: 39px;
+  font-weight: 900;
+}
+
+
+.character-collection-info {
+  position: relative;
+
+  padding: 21px;
+}
+
+
+.character-collection-info p {
+  margin: 0 0 8px;
+
+  color: var(--yellow);
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.14em;
+}
+
+
+.character-collection-info h3 {
+  margin: 0;
+
+  font-size: 22px;
+  font-weight: 900;
+
+  letter-spacing: -0.04em;
+}
+
+
+.character-collection-info >
+span {
+  position: absolute;
+
+  right: 21px;
+  bottom: 21px;
+
+  color: var(--yellow);
+
+  font-size: 20px;
+}
+
+
+/* =========================================================
+   FINAL COLLECTION CTA
+   ========================================================= */
+
+.collections-final {
+  position: relative;
+
+  min-height: 650px;
+
+  padding:
+    90px
+    max(
+      30px,
+      calc(
+        (100vw - var(--page-width)) / 2
+        + 70px
+      )
+    );
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 82% 50%,
+      rgba(234, 211, 30, 0.35),
+      transparent 25%
+    ),
+    var(--paper);
+}
+
+
+.collections-final > p {
+  margin: 0 0 16px;
+
+  color: #8b7d00;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+}
+
+
+.collections-final h2 {
+  max-width: 950px;
+
+  margin:
+    0
+    0
+    35px;
+
+  font-size:
+    clamp(55px, 7vw, 105px);
+
+  font-weight: 900;
+
+  line-height: 0.85;
+
+  letter-spacing: -0.075em;
+}
+
+
+/* =========================================================
+   COLLECTIONS TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .collections-hero {
+    padding:
+      155px
+      38px
+      70px;
+  }
+
+
+  .collection-showcase {
+    padding:
+      80px
+      38px;
+
+    grid-template-columns:
+      45px
+      1fr
+      1fr;
+
+    gap: 25px;
+  }
+
+
+  .collection-visual {
+    min-height: 470px;
+  }
+
+
+  .character-collection-section,
+  .collections-final {
+    padding-left: 38px;
+    padding-right: 38px;
+  }
+
+
+  .character-collection-art {
+    min-height: 340px;
+  }
+
+}
+
+
+/* =========================================================
+   COLLECTIONS MOBILE
+   ========================================================= */
+
+@media (max-width: 720px) {
+
+  .collections-hero {
+    min-height: 650px;
+
+    padding:
+      130px
+      20px
+      55px;
+  }
+
+
+  .collections-hero h1 {
+    font-size:
+      clamp(64px, 20vw, 100px);
+  }
+
+
+  .collections-jump {
+    margin-top: 45px;
+  }
+
+
+  .collection-showcase {
+    min-height: auto;
+
+    padding:
+      70px
+      18px;
+
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+
+  .collection-number {
+    padding: 0;
+  }
+
+
+  .collection-copy h2 {
+    font-size:
+      clamp(57px, 19vw, 85px);
+  }
+
+
+  .collection-visual {
+    min-height: 430px;
+
+    grid-row: auto;
+  }
+
+
+  .collection-object {
+    width: 190px;
+    height: 270px;
+  }
+
+
+  .collection-object-large {
+    width: 205px;
+    height: 285px;
+  }
+
+
+  .collection-mug {
+    width: 185px;
+    height: 210px;
+  }
+
+
+  .collection-mug::after {
+    right: -61px;
+
+    width: 75px;
+    height: 95px;
+
+    border-width: 20px;
+    border-left: 0;
+  }
+
+
+  .character-collection-section {
+    padding:
+      75px
+      18px;
+  }
+
+
+  .character-collection-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+
+  .character-collection-heading h2 {
+    font-size: 43px;
+  }
+
+
+  .character-collection-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .character-collection-art {
+    min-height: 390px;
+  }
+
+
+  .collections-final {
+    min-height: 550px;
+
+    padding:
+      70px
+      20px;
+  }
+
+
+  .collections-final h2 {
+    font-size:
+      clamp(49px, 15vw, 74px);
+  }
+
+}
