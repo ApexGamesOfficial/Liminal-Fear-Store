@@ -1,6 +1,6 @@
 /* =========================================================
    LIMINAL FEAR STORE
-   script.js — v0.2
+   script.js — v0.3 TEST MODE
    ========================================================= */
 
 "use strict";
@@ -47,7 +47,26 @@ const discountClose = $("#discountClose");
 const discountSkip = $("#discountSkip");
 const discountForm = $("#discountForm");
 const discountEmail = $("#discountEmail");
-const openDiscount = $("#openDiscount");
+const openDiscountButton = $("#openDiscount");
+
+
+/* =========================================================
+   TEST MODE
+   ========================================================= */
+
+/*
+   TRUE:
+   Discount popup opens 3 seconds after every page load.
+
+   FALSE:
+   Normal occasional/cooldown behavior is used.
+
+   KEEP TRUE WHILE WE ARE BUILDING.
+*/
+
+const DISCOUNT_TEST_MODE = true;
+
+const DISCOUNT_TEST_DELAY = 3000;
 
 
 /* =========================================================
@@ -96,10 +115,6 @@ updateNavbar();
 
 function openSearch() {
   if (!navSearchPanel) return;
-
-  /*
-    Don't let the cart and search overlap.
-  */
 
   closeCart();
 
@@ -175,12 +190,10 @@ navSearchPanel?.addEventListener(
 
 
 /* =========================================================
-   SEARCH DATA
+   SEARCH DESTINATIONS
 
-   IMPORTANT:
-   These are categories, NOT fake products.
-
-   Later we'll replace/extend this with actual merchandise.
+   These are real site destinations/categories,
+   not fake store products.
    ========================================================= */
 
 const searchableDestinations = [
@@ -229,7 +242,7 @@ const searchableDestinations = [
 
 
 /* =========================================================
-   RENDER SEARCH RESULTS
+   SEARCH RESULTS
    ========================================================= */
 
 function renderSearchResults(query) {
@@ -253,6 +266,7 @@ function renderSearchResults(query) {
 
   const matches =
     searchableDestinations.filter((item) => {
+
       return (
         item.name
           .toLowerCase()
@@ -262,6 +276,7 @@ function renderSearchResults(query) {
           .toLowerCase()
           .includes(cleanedQuery)
       );
+
     });
 
 
@@ -279,12 +294,15 @@ function renderSearchResults(query) {
   searchResults.innerHTML =
     matches
       .map((item) => {
+
         return `
           <a
             class="search-result-item"
             href="${item.url}"
           >
+
             <span>
+
               <strong>
                 ${escapeHTML(item.name)}
               </strong>
@@ -292,13 +310,16 @@ function renderSearchResults(query) {
               <small>
                 ${escapeHTML(item.type)}
               </small>
+
             </span>
 
             <span class="search-result-arrow">
               →
             </span>
+
           </a>
         `;
+
       })
       .join("");
 }
@@ -307,9 +328,11 @@ function renderSearchResults(query) {
 navSearchInput?.addEventListener(
   "input",
   () => {
+
     renderSearchResults(
       navSearchInput.value
     );
+
   }
 );
 
@@ -321,6 +344,7 @@ navSearchInput?.addEventListener(
 document.addEventListener(
   "click",
   (event) => {
+
     if (!navSearchPanel) return;
 
     const clickedSearchButton =
@@ -329,12 +353,14 @@ document.addEventListener(
     const clickedPanel =
       navSearchPanel.contains(event.target);
 
+
     if (
       !clickedSearchButton &&
       !clickedPanel
     ) {
       closeSearch();
     }
+
   }
 );
 
@@ -407,23 +433,8 @@ cartBackdrop?.addEventListener(
 
 
 /* =========================================================
-   DISCOUNT POPUP STORAGE
+   DISCOUNT STORAGE
    ========================================================= */
-
-/*
-  This controls how often the popup is allowed to appear.
-
-  We're intentionally making it uncommon.
-
-  DISMISS COOLDOWN:
-  7 days
-
-  SUCCESS COOLDOWN:
-  30 days
-
-  The offer itself should NOT issue a real discount until
-  the commerce/email backend is configured.
-*/
 
 const DISCOUNT_STORAGE = {
   lastShown:
@@ -462,21 +473,20 @@ function storageGet(key) {
 
 function storageSet(key, value) {
   try {
+
     localStorage.setItem(
       key,
       String(value)
     );
+
   } catch {
-    /*
-      Store still works if storage
-      is unavailable.
-    */
+    /* Site still works without storage. */
   }
 }
 
 
 /* =========================================================
-   DISCOUNT ELIGIBILITY
+   NORMAL DISCOUNT ELIGIBILITY
    ========================================================= */
 
 function canShowDiscount() {
@@ -504,11 +514,6 @@ function canShowDiscount() {
     ) || 0;
 
 
-  /*
-    Don't show again soon after somebody
-    entered their email.
-  */
-
   if (
     submitted &&
     now - submitted < SUBMIT_COOLDOWN
@@ -517,10 +522,6 @@ function canShowDiscount() {
   }
 
 
-  /*
-    Don't annoy somebody who said no.
-  */
-
   if (
     dismissed &&
     now - dismissed < DISMISS_COOLDOWN
@@ -528,11 +529,6 @@ function canShowDiscount() {
     return false;
   }
 
-
-  /*
-    Even if they didn't interact with it,
-    don't keep showing it repeatedly.
-  */
 
   if (
     lastShown &&
@@ -569,17 +565,28 @@ function openDiscount({
   discountPopup.classList.add("open");
   discountBackdrop.classList.add("open");
 
+
   discountPopup.setAttribute(
     "aria-hidden",
     "false"
   );
 
 
-  if (automatic) {
+  /*
+     Test mode does NOT write the automatic
+     appearance to the cooldown timer.
+  */
+
+  if (
+    automatic &&
+    !DISCOUNT_TEST_MODE
+  ) {
+
     storageSet(
       DISCOUNT_STORAGE.lastShown,
       Date.now()
     );
+
   }
 
 
@@ -607,17 +614,28 @@ function closeDiscount({
   discountPopup.classList.remove("open");
   discountBackdrop.classList.remove("open");
 
+
   discountPopup.setAttribute(
     "aria-hidden",
     "true"
   );
 
 
-  if (dismissed) {
+  /*
+     During test mode we don't create a
+     seven-day dismissal cooldown.
+  */
+
+  if (
+    dismissed &&
+    !DISCOUNT_TEST_MODE
+  ) {
+
     storageSet(
       DISCOUNT_STORAGE.dismissed,
       Date.now()
     );
+
   }
 
 
@@ -629,26 +647,30 @@ function closeDiscount({
    MANUAL DISCOUNT BUTTON
    ========================================================= */
 
-openDiscount?.addEventListener(
+openDiscountButton?.addEventListener(
   "click",
   () => {
+
     openDiscount({
       automatic: false
     });
+
   }
 );
 
 
 /* =========================================================
-   DISMISS DISCOUNT
+   DISCOUNT CLOSE BUTTONS
    ========================================================= */
 
 discountClose?.addEventListener(
   "click",
   () => {
+
     closeDiscount({
       dismissed: true
     });
+
   }
 );
 
@@ -656,9 +678,11 @@ discountClose?.addEventListener(
 discountSkip?.addEventListener(
   "click",
   () => {
+
     closeDiscount({
       dismissed: true
     });
+
   }
 );
 
@@ -666,31 +690,63 @@ discountSkip?.addEventListener(
 discountBackdrop?.addEventListener(
   "click",
   () => {
+
     closeDiscount({
       dismissed: true
     });
+
   }
 );
 
 
 /* =========================================================
-   OCCASIONAL AUTOMATIC DISCOUNT POPUP
+   DISCOUNT SCHEDULER
    ========================================================= */
 
-/*
-  We do NOT immediately throw this at the visitor.
-
-  Requirements:
-  - Wait at least 18 seconds.
-  - Visitor must still be on the page.
-  - Popup must be eligible.
-  - Only a 35% chance on an eligible visit.
-
-  Combined with the 7-day cooldown,
-  this keeps it occasional instead of annoying.
-*/
-
 function scheduleDiscountOffer() {
+
+  /*
+     ============================================
+     TEST MODE
+     ============================================
+
+     Opens every page load after 3 seconds.
+
+     Ignores old cooldown data.
+  */
+
+  if (DISCOUNT_TEST_MODE) {
+
+    window.setTimeout(() => {
+
+      if (
+        document.visibilityState !== "visible"
+      ) {
+        return;
+      }
+
+
+      openDiscount({
+        automatic: true
+      });
+
+    }, DISCOUNT_TEST_DELAY);
+
+
+    return;
+  }
+
+
+  /*
+     ============================================
+     NORMAL MODE
+     ============================================
+
+     Wait 18–32 seconds.
+     35% chance.
+     Respect cooldowns.
+  */
+
   if (!canShowDiscount()) {
     return;
   }
@@ -734,11 +790,7 @@ function scheduleDiscountOffer() {
 }
 
 
-window.setTimeout(() => {
-  openDiscount({
-    automatic: false
-  });
-}, 3000);
+scheduleDiscountOffer();
 
 
 /* =========================================================
@@ -770,38 +822,47 @@ discountForm?.addEventListener(
     if (
       !discountEmail.checkValidity()
     ) {
+
       discountEmail.reportValidity();
+
       return;
     }
 
 
     /*
-      IMPORTANT:
+       IMPORTANT:
 
-      We are NOT generating a fake discount code
-      and we are NOT pretending this email has
-      been sent anywhere.
+       The real email/discount backend is not
+       connected yet.
 
-      Once the real mailing/promotion backend is
-      connected, this is where we'll send it.
+       We do NOT store the visitor's email in
+       localStorage and we do NOT pretend a
+       discount code was issued.
     */
 
-    storageSet(
-      DISCOUNT_STORAGE.submitted,
-      Date.now()
-    );
+
+    if (!DISCOUNT_TEST_MODE) {
+
+      storageSet(
+        DISCOUNT_STORAGE.submitted,
+        Date.now()
+      );
+
+    }
 
 
     showDiscountPendingState();
+
   }
 );
 
 
 /* =========================================================
-   DISCOUNT PENDING STATE
+   DISCOUNT TEST/PENDING STATE
    ========================================================= */
 
 function showDiscountPendingState() {
+
   if (!discountForm) return;
 
 
@@ -810,22 +871,27 @@ function showDiscountPendingState() {
 
 
   if (discountDescription) {
+
     discountDescription.textContent =
-      "Thanks! The store's email offer system is being prepared. No discount has been issued yet.";
+      "The email offer system is not connected yet. No email or discount code has been sent.";
+
   }
 
 
   discountForm.innerHTML = `
     <div class="discount-pending">
-      EMAIL SAVED FOR THIS SESSION
+      PROMOTION SYSTEM COMING SOON
     </div>
   `;
 
 
   if (discountSkip) {
+
     discountSkip.textContent =
       "CONTINUE EXPLORING";
+
   }
+
 }
 
 
@@ -847,6 +913,7 @@ document.addEventListener(
         "open"
       )
     ) {
+
       closeDiscount({
         dismissed: true
       });
@@ -860,7 +927,9 @@ document.addEventListener(
         "open"
       )
     ) {
+
       closeCart();
+
       return;
     }
 
@@ -870,7 +939,9 @@ document.addEventListener(
         "open"
       )
     ) {
+
       closeSearch();
+
     }
 
   }
@@ -929,12 +1000,14 @@ $$('a[href^="#"]').forEach(
    ========================================================= */
 
 function escapeHTML(value) {
+
   return String(value)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+
 }
 
 
