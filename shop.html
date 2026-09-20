@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Shop official Liminal Fear merchandise."
+  >
+
+  <title>Shop Merch | Liminal Fear</title>
+
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
+</head>
+
+<body data-page="shop">
+
+
+  <!-- =====================================================
+       FLOATING HEADER
+       ===================================================== -->
+
+  <header
+    class="site-header"
+    id="siteHeader"
+  >
+
+    <nav class="navbar">
+
+
+      <!-- Brand -->
+
+      <a
+        class="brand"
+        href="index.html"
+        aria-label="Liminal Fear Home"
+      >
+        LIMINAL FEAR
+      </a>
+
+
+      <!-- Main Navigation -->
+
+      <div class="nav-links">
+
+        <a
+          class="nav-link"
+          href="index.html"
+        >
+          Home
+        </a>
+
+        <a
+          class="nav-link active"
+          href="shop.html"
+        >
+          Shop
+        </a>
+
+        <a
+          class="nav-link"
+          href="collections.html"
+        >
+          Collections
+        </a>
+
+        <a
+          class="nav-link"
+          href="contact.html"
+        >
+          Contact
+        </a>
+
+      </div>
+
+
+      <!-- Actions -->
+
+      <div class="nav-actions">
+
+        <button
+          class="currency-button"
+          type="button"
+          aria-label="Currency selector"
+          title="Currency options will be available with store checkout"
+        >
+          USD
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="m7 10 5 5 5-5"></path>
+          </svg>
+        </button>
+
+
+        <!-- Search -->
+
+        <button
+          class="nav-icon"
+          id="searchButton"
+          type="button"
+          aria-label="Search"
+          aria-expanded="false"
+          aria-controls="navSearchPanel"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <circle
+              cx="11"
+              cy="11"
+              r="7"
+            ></circle>
+
+            <path
+              d="m20 20-4-4"
+            ></path>
+          </svg>
+        </button>
+
+
+        <!-- Account -->
+
+        <a
+          class="nav-icon"
+          href="account.html"
+          aria-label="Account"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <circle
+              cx="12"
+              cy="8"
+              r="4"
+            ></circle>
+
+            <path
+              d="M4.5 21a7.5 7.5 0 0 1 15 0"
+            ></path>
+          </svg>
+        </a>
+
+
+        <!-- Cart -->
+
+        <button
+          class="nav-icon"
+          id="cartButton"
+          type="button"
+          aria-label="Cart"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M6 7h15l-2 8H8L6 3H3"
+            ></path>
+
+            <circle
+              cx="9"
+              cy="20"
+              r="1"
+            ></circle>
+
+            <circle
+              cx="18"
+              cy="20"
+              r="1"
+            ></circle>
+          </svg>
+
+          <span class="cart-count">
+            0
+          </span>
+        </button>
+
+      </div>
+
+    </nav>
+
+
+    <!-- ===================================================
+         NAV SEARCH PANEL
+         =================================================== -->
+
+    <div
+      class="nav-search-panel"
+      id="navSearchPanel"
+      aria-hidden="true"
+    >
+
+      <div class="nav-search-inner">
+
+        <svg
+          class="nav-search-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <circle
+            cx="11"
+            cy="11"
+            r="7"
+          ></circle>
+
+          <path
+            d="m20 20-4-4"
+          ></path>
+        </svg>
+
+
+        <input
+          id="navSearchInput"
+          type="search"
+          placeholder="Search Liminal Fear..."
+          autocomplete="off"
+          aria-label="Search Liminal Fear Store"
+        >
+
+
+        <button
+          class="search-close"
+          id="searchClose"
+          type="button"
+          aria-label="Close search"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div
+        class="search-results"
+        id="searchResults"
+      >
+        <p class="search-hint">
+          Search plushies, apparel, stickers,
+          drinkware and more.
+        </p>
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       SHOP HERO
+       ===================================================== -->
+
+  <main>
+
+    <section class="shop-page-hero">
+
+      <div class="shop-page-noise"></div>
+
+
+      <div class="shop-page-hero-inner">
+
+        <p class="shop-page-eyebrow">
+          OFFICIAL LIMINAL FEAR STORE
+        </p>
+
+        <h1>
+          SHOP
+          <span>MERCH.</span>
+        </h1>
+
+        <p class="shop-page-description">
+          Take something back with you.
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         SHOP TOOLBAR
+         =================================================== -->
+
+    <section class="shop-browser">
+
+      <div class="shop-browser-header">
+
+        <div>
+
+          <p class="section-label">
+            LIMINAL FEAR
+          </p>
+
+          <h2>
+            EXPLORE PRODUCTS
+          </h2>
+
+        </div>
+
+
+        <a
+          class="text-link"
+          href="collections.html"
+        >
+          VIEW COLLECTIONS
+          <span>→</span>
+        </a>
+
+      </div>
+
+
+
+      <!-- Search + Filters -->
+
+      <div class="shop-toolbar">
+
+        <div class="shop-search-box">
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <circle
+              cx="11"
+              cy="11"
+              r="7"
+            ></circle>
+
+            <path
+              d="m20 20-4-4"
+            ></path>
+          </svg>
+
+          <input
+            id="shopSearchInput"
+            type="search"
+            placeholder="Search products..."
+            autocomplete="off"
+            aria-label="Search products"
+          >
+
+        </div>
+
+
+        <div
+          class="shop-filter-row"
+          aria-label="Product categories"
+        >
+
+          <button
+            class="shop-filter active"
+            type="button"
+            data-filter="all"
+          >
+            ALL
+          </button>
+
+          <button
+            class="shop-filter"
+            type="button"
+            data-filter="plushies"
+          >
+            PLUSHIES
+          </button>
+
+          <button
+            class="shop-filter"
+            type="button"
+            data-filter="apparel"
+          >
+            APPAREL
+          </button>
+
+          <button
+            class="shop-filter"
+            type="button"
+            data-filter="stickers"
+          >
+            STICKERS
+          </button>
+
+          <button
+            class="shop-filter"
+            type="button"
+            data-filter="drinkware"
+          >
+            DRINKWARE
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           REAL PRODUCT AREA
+
+           We intentionally aren't inventing products.
+
+           Later, actual configured store merchandise will
+           render here.
+           ================================================= -->
+
+      <div
+        class="shop-product-area"
+        id="shopProductArea"
+      >
+
+        <div
+          class="shop-empty-state"
+          id="shopEmptyState"
+        >
+
+          <div class="shop-empty-symbol">
+            LF
+          </div>
+
+
+          <p class="shop-empty-label">
+            PRODUCT ARCHIVE
+          </p>
+
+
+          <h3>
+            MERCH IS ENTERING
+            <br>
+            THE BACKROOMS.
+          </h3>
+
+
+          <p class="shop-empty-description">
+            Official Liminal Fear products will appear
+            here as they become available.
+          </p>
+
+
+          <a
+            class="button button-primary"
+            href="collections.html"
+          >
+            EXPLORE COLLECTIONS
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         CATEGORY DIRECTORY
+         =================================================== -->
+
+    <section class="shop-category-directory">
+
+      <div class="shop-category-heading">
+
+        <p>
+          SHOP BY CATEGORY
+        </p>
+
+        <h2>
+          FIND WHAT
+          <br>
+          FOLLOWED YOU OUT.
+        </h2>
+
+      </div>
+
+
+      <div class="shop-directory-grid">
+
+
+        <!-- Plushies -->
+
+        <a
+          class="shop-directory-card"
+          href="collections.html#plushies"
+        >
+
+          <span class="shop-directory-number">
+            01
+          </span>
+
+          <div>
+
+            <p>
+              COLLECTION
+            </p>
+
+            <h3>
+              PLUSHIES
+            </h3>
+
+          </div>
+
+          <span class="shop-directory-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- Apparel -->
+
+        <a
+          class="shop-directory-card"
+          href="collections.html#apparel"
+        >
+
+          <span class="shop-directory-number">
+            02
+          </span>
+
+          <div>
+
+            <p>
+              COLLECTION
+            </p>
+
+            <h3>
+              APPAREL
+            </h3>
+
+          </div>
+
+          <span class="shop-directory-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- Stickers -->
+
+        <a
+          class="shop-directory-card"
+          href="collections.html#stickers"
+        >
+
+          <span class="shop-directory-number">
+            03
+          </span>
+
+          <div>
+
+            <p>
+              COLLECTION
+            </p>
+
+            <h3>
+              STICKERS
+            </h3>
+
+          </div>
+
+          <span class="shop-directory-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- Drinkware -->
+
+        <a
+          class="shop-directory-card"
+          href="collections.html#drinkware"
+        >
+
+          <span class="shop-directory-number">
+            04
+          </span>
+
+          <div>
+
+            <p>
+              COLLECTION
+            </p>
+
+            <h3>
+              DRINKWARE
+            </h3>
+
+          </div>
+
+          <span class="shop-directory-arrow">
+            →
+          </span>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         DARK CTA
+         =================================================== -->
+
+    <section class="shop-bottom-cta">
+
+      <div class="shop-bottom-glow"></div>
+
+
+      <div class="shop-bottom-content">
+
+        <p>
+          LIMINAL FEAR
+        </p>
+
+        <h2>
+          YOU CAN LEAVE.
+          <br>
+          IT DOESN'T MEAN
+          <br>
+          YOU ESCAPED.
+        </h2>
+
+
+        <a
+          class="button button-primary"
+          href="collections.html"
+        >
+          EXPLORE COLLECTIONS
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer class="footer">
+
+    <div class="footer-top">
+
+
+      <div class="footer-brand">
+
+        <h2>
+          LIMINAL FEAR
+        </h2>
+
+        <p>
+          Official merchandise from the other side.
+        </p>
+
+      </div>
+
+
+
+      <div class="footer-links">
+
+
+        <div>
+
+          <h3>
+            STORE
+          </h3>
+
+          <a href="shop.html">
+            Shop
+          </a>
+
+          <a href="collections.html">
+            Collections
+          </a>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            HELP
+          </h3>
+
+          <a href="contact.html">
+            Contact
+          </a>
+
+          <button
+            class="footer-discount-button"
+            id="openDiscount"
+            type="button"
+          >
+            Get 15% Off
+          </button>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            ACCOUNT
+          </h3>
+
+          <a href="account.html">
+            Account
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 LIMINAL FEAR
+      </span>
+
+      <span>
+        OFFICIAL STORE
+      </span>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       CART BACKDROP
+       ===================================================== -->
+
+  <div
+    class="cart-backdrop"
+    id="cartBackdrop"
+  ></div>
+
+
+
+  <!-- =====================================================
+       CART DRAWER
+       ===================================================== -->
+
+  <aside
+    class="cart-drawer"
+    id="cartDrawer"
+    aria-hidden="true"
+    aria-label="Shopping cart"
+  >
+
+    <div class="cart-header">
+
+      <div>
+
+        <span class="cart-label">
+          LIMINAL FEAR STORE
+        </span>
+
+        <h2>
+          YOUR CART
+        </h2>
+
+      </div>
+
+
+      <button
+        class="cart-close"
+        id="cartClose"
+        type="button"
+        aria-label="Close cart"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+
+    <div class="cart-empty">
+
+      <div class="cart-empty-icon">
+        LF
+      </div>
+
+      <h3>
+        YOUR CART IS EMPTY.
+      </h3>
+
+      <p>
+        Nothing followed you here... yet.
+      </p>
+
+      <a
+        class="button button-dark"
+        href="shop.html"
+      >
+        EXPLORE PRODUCTS
+      </a>
+
+    </div>
+
+  </aside>
+
+
+
+  <!-- =====================================================
+       DISCOUNT BACKDROP
+       ===================================================== -->
+
+  <div
+    class="discount-backdrop"
+    id="discountBackdrop"
+  ></div>
+
+
+
+  <!-- =====================================================
+       DISCOUNT POPUP
+       ===================================================== -->
+
+  <section
+    class="discount-popup"
+    id="discountPopup"
+    aria-hidden="true"
+    aria-label="Liminal Fear store offer"
+  >
+
+    <div class="discount-noise"></div>
+
+
+    <button
+      class="discount-close"
+      id="discountClose"
+      type="button"
+      aria-label="Close offer"
+    >
+      ×
+    </button>
+
+
+    <div class="discount-content">
+
+      <p class="discount-eyebrow">
+        SOMETHING FOLLOWED YOU HERE
+      </p>
+
+
+      <h2>
+
+        <span>
+          GET 15% OFF YOUR NEXT
+        </span>
+
+
+        <img
+          class="liminal-wordmark"
+          src="assets/liminal-wordmark.png"
+          alt="Liminal"
+        >
+
+
+        <span>
+          PURCHASE!
+        </span>
+
+      </h2>
+
+
+      <p class="discount-description">
+        Enter your email to receive store offers
+        and updates when this promotion becomes
+        available.
+      </p>
+
+
+      <form
+        class="discount-form"
+        id="discountForm"
+      >
+
+        <label
+          class="sr-only"
+          for="discountEmail"
+        >
+          Email address
+        </label>
+
+
+        <input
+          id="discountEmail"
+          type="email"
+          placeholder="Enter your email"
+          autocomplete="email"
+          required
+        >
+
+
+        <button
+          class="button button-primary"
+          type="submit"
+        >
+          CLAIM 15% OFF
+        </button>
+
+      </form>
+
+
+      <button
+        class="discount-skip"
+        id="discountSkip"
+        type="button"
+      >
+        NO THANKS, I'LL KEEP WANDERING
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
