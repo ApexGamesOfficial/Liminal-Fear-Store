@@ -734,7 +734,11 @@ function scheduleDiscountOffer() {
 }
 
 
-scheduleDiscountOffer();
+window.setTimeout(() => {
+  openDiscount({
+    automatic: false
+  });
+}, 3000);
 
 
 /* =========================================================
