@@ -18,61 +18,115 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body data-page="home">
 
   <!-- =====================================================
-       NAVBAR
+       FLOATING NAVBAR
        ===================================================== -->
 
-  <header class="site-header">
+  <header class="site-header" id="siteHeader">
 
     <nav class="navbar">
 
-      <a class="brand" href="#home">
+      <a class="brand" href="index.html">
         LIMINAL FEAR
       </a>
 
       <div class="nav-links">
-        <a class="nav-link active" href="#home">Home</a>
-        <a class="nav-link" href="#shop">Shop</a>
-        <a class="nav-link" href="#collections">Collections</a>
-        <a class="nav-link" href="#contact">Contact</a>
+
+        <a
+          class="nav-link active"
+          href="index.html"
+        >
+          Home
+        </a>
+
+        <a
+          class="nav-link"
+          href="shop.html"
+        >
+          Shop
+        </a>
+
+        <a
+          class="nav-link"
+          href="collections.html"
+        >
+          Collections
+        </a>
+
+        <a
+          class="nav-link"
+          href="contact.html"
+        >
+          Contact
+        </a>
+
       </div>
+
 
       <div class="nav-actions">
 
+        <!-- Currency placeholder for later commerce integration -->
+
+        <button
+          class="currency-button"
+          type="button"
+          aria-label="Currency"
+        >
+          <span>USD</span>
+
+          <svg viewBox="0 0 24 24">
+            <path d="M7 9L12 14L17 9"></path>
+          </svg>
+        </button>
+
+
+        <!-- Search -->
+
         <button
           class="nav-icon"
-          type="button"
-          aria-label="Search"
           id="searchButton"
+          type="button"
+          aria-label="Search products"
+          aria-expanded="false"
         >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
             <circle cx="11" cy="11" r="7"></circle>
             <path d="M20 20L16.5 16.5"></path>
           </svg>
         </button>
 
-        <button
+
+        <!-- Account -->
+
+        <a
           class="nav-icon"
-          type="button"
+          href="account.html"
           aria-label="Account"
         >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
             <circle cx="12" cy="8" r="4"></circle>
-            <path d="M4.5 21C5.2 16.8 7.7 15 12 15C16.3 15 18.8 16.8 19.5 21"></path>
+            <path
+              d="M4.5 21C5.2 16.8 7.7 15 12 15C16.3 15 18.8 16.8 19.5 21"
+            ></path>
           </svg>
-        </button>
+        </a>
+
+
+        <!-- Cart -->
 
         <button
           class="nav-icon cart-button"
+          id="cartButton"
           type="button"
           aria-label="Open cart"
-          id="cartButton"
         >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
             <path d="M6 8H18L17 21H7L6 8Z"></path>
-            <path d="M9 9V6C9 4.3 10.3 3 12 3C13.7 3 15 4.3 15 6V9"></path>
+            <path
+              d="M9 9V6C9 4.3 10.3 3 12 3C13.7 3 15 4.3 15 6V9"
+            ></path>
           </svg>
 
           <span class="cart-count">0</span>
@@ -81,6 +135,57 @@
       </div>
 
     </nav>
+
+
+    <!-- ===================================================
+         NAVBAR SEARCH
+         =================================================== -->
+
+    <div
+      class="nav-search-panel"
+      id="navSearchPanel"
+      aria-hidden="true"
+    >
+
+      <div class="nav-search-inner">
+
+        <svg
+          class="nav-search-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="M20 20L16.5 16.5"></path>
+        </svg>
+
+        <input
+          id="navSearchInput"
+          type="search"
+          placeholder="Search Liminal Fear merch..."
+          autocomplete="off"
+        >
+
+        <button
+          class="search-close"
+          id="searchClose"
+          type="button"
+          aria-label="Close search"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="search-results" id="searchResults">
+
+        <p class="search-hint">
+          Search plushies, apparel, stickers, drinkware and more.
+        </p>
+
+      </div>
+
+    </div>
 
   </header>
 
@@ -96,17 +201,20 @@
       <div class="hero-overlay"></div>
       <div class="hero-noise"></div>
 
+
       <div class="hero-content">
 
         <p class="hero-eyebrow">
           OFFICIAL LIMINAL FEAR STORE
         </p>
 
+
         <h1 class="hero-title">
 
           <span>THE</span>
 
           <span class="fear-line">
+
             <span class="fear-word">
               <img
                 src="assets/fear-wordmark.png"
@@ -114,24 +222,37 @@
               >
             </span>
 
-            <span>DOESN'T END</span>
+            <span class="fear-following">
+              DOESN'T END
+            </span>
+
           </span>
 
-          <span>WHEN YOU ESCAPE.</span>
+          <span>
+            WHEN YOU ESCAPE.
+          </span>
 
         </h1>
+
 
         <p class="hero-description">
           Official Liminal Fear merchandise.
         </p>
 
+
         <div class="hero-buttons">
 
-          <a class="button button-primary" href="#shop">
+          <a
+            class="button button-primary"
+            href="shop.html"
+          >
             SHOP MERCH
           </a>
 
-          <a class="button button-secondary" href="#collections">
+          <a
+            class="button button-secondary"
+            href="collections.html"
+          >
             EXPLORE COLLECTIONS
           </a>
 
@@ -139,10 +260,11 @@
 
       </div>
 
+
       <a
         class="scroll-indicator"
-        href="#collections"
-        aria-label="Scroll to collections"
+        href="#explore"
+        aria-label="Explore products"
       >
         <span>EXPLORE</span>
         <span class="scroll-arrow">↓</span>
@@ -152,133 +274,186 @@
 
 
     <!-- ===================================================
-         STORE FEATURES
+         FEATURE STRIP
          =================================================== -->
 
     <section class="feature-strip">
 
       <div class="feature">
         <strong>OFFICIAL MERCH</strong>
-        <span>Made for Liminal Fear</span>
+        <span>Liminal Fear merchandise</span>
       </div>
 
       <div class="feature-divider"></div>
 
       <div class="feature">
         <strong>PLUSHIES</strong>
-        <span>Characters from the game</span>
+        <span>Characters from Liminal Fear</span>
       </div>
 
       <div class="feature-divider"></div>
 
       <div class="feature">
         <strong>APPAREL</strong>
-        <span>Liminal Fear designs</span>
+        <span>Wear the fear</span>
       </div>
 
       <div class="feature-divider"></div>
 
       <div class="feature">
-        <strong>COLLECTIBLES</strong>
-        <span>More than just clothing</span>
+        <strong>COLLECTIONS</strong>
+        <span>Explore the store</span>
       </div>
 
     </section>
 
 
     <!-- ===================================================
-         COLLECTIONS
+         EXPLORE PRODUCTS
          =================================================== -->
 
-    <section class="section collections-section" id="collections">
+    <section
+      class="section explore-products"
+      id="explore"
+    >
 
       <div class="section-heading">
 
         <div>
-          <p class="section-label">ENTER THE STORE</p>
-          <h2>SHOP COLLECTIONS</h2>
+          <p class="section-label">
+            LIMINAL FEAR STORE
+          </p>
+
+          <h2>
+            EXPLORE PRODUCTS
+          </h2>
         </div>
 
-        <a href="#shop" class="text-link">
-          VIEW EVERYTHING
+        <a
+          class="text-link"
+          href="shop.html"
+        >
+          VIEW ALL PRODUCTS
           <span>→</span>
         </a>
 
       </div>
 
 
-      <div class="collection-grid">
+      <div class="explore-category-row">
 
-        <a class="collection-card collection-plushies" href="#shop">
+        <a
+          class="explore-category"
+          href="collections.html#plushies"
+        >
+          <span class="explore-number">01</span>
 
-          <div class="collection-image placeholder-image">
-            <span>PLUSHIES</span>
-          </div>
+          <span class="explore-name">
+            PLUSHIES
+          </span>
 
-          <div class="collection-info">
-            <div>
-              <span class="collection-number">01</span>
-              <h3>PLUSHIES</h3>
-            </div>
-
-            <span class="circle-arrow">↗</span>
-          </div>
-
+          <span class="explore-arrow">
+            ↗
+          </span>
         </a>
 
 
-        <a class="collection-card" href="#shop">
+        <a
+          class="explore-category"
+          href="collections.html#apparel"
+        >
+          <span class="explore-number">02</span>
 
-          <div class="collection-image placeholder-image">
-            <span>APPAREL</span>
-          </div>
+          <span class="explore-name">
+            APPAREL
+          </span>
 
-          <div class="collection-info">
-            <div>
-              <span class="collection-number">02</span>
-              <h3>APPAREL</h3>
-            </div>
-
-            <span class="circle-arrow">↗</span>
-          </div>
-
+          <span class="explore-arrow">
+            ↗
+          </span>
         </a>
 
 
-        <a class="collection-card" href="#shop">
+        <a
+          class="explore-category"
+          href="collections.html#stickers"
+        >
+          <span class="explore-number">03</span>
 
-          <div class="collection-image placeholder-image">
-            <span>STICKERS</span>
-          </div>
+          <span class="explore-name">
+            STICKERS
+          </span>
 
-          <div class="collection-info">
-            <div>
-              <span class="collection-number">03</span>
-              <h3>STICKERS</h3>
-            </div>
-
-            <span class="circle-arrow">↗</span>
-          </div>
-
+          <span class="explore-arrow">
+            ↗
+          </span>
         </a>
 
 
-        <a class="collection-card" href="#shop">
+        <a
+          class="explore-category"
+          href="collections.html#drinkware"
+        >
+          <span class="explore-number">04</span>
 
-          <div class="collection-image placeholder-image">
-            <span>DRINKWARE</span>
-          </div>
+          <span class="explore-name">
+            DRINKWARE
+          </span>
 
-          <div class="collection-info">
-            <div>
-              <span class="collection-number">04</span>
-              <h3>DRINKWARE</h3>
-            </div>
-
-            <span class="circle-arrow">↗</span>
-          </div>
-
+          <span class="explore-arrow">
+            ↗
+          </span>
         </a>
+
+      </div>
+
+
+      <!--
+        Real Fourthwall-backed products will go here.
+
+        No fake products/prices are being published.
+      -->
+
+      <div class="product-preview">
+
+        <div class="product-preview-copy">
+
+          <span class="preview-tag">
+            OFFICIAL LIMINAL FEAR MERCH
+          </span>
+
+          <h3>
+            SOMETHING IS
+            <br>
+            COMING THROUGH.
+          </h3>
+
+          <p>
+            Plushies, apparel, stickers, drinkware and
+            more will appear here as official products
+            become available.
+          </p>
+
+          <a
+            class="button button-dark"
+            href="shop.html"
+          >
+            EXPLORE THE SHOP
+          </a>
+
+        </div>
+
+
+        <div
+          class="product-preview-visual"
+          aria-hidden="true"
+        >
+
+          <span>
+            LIMINAL FEAR
+          </span>
+
+        </div>
 
       </div>
 
@@ -286,7 +461,7 @@
 
 
     <!-- ===================================================
-         PLUSHIES
+         CHARACTER COLLECTION
          =================================================== -->
 
     <section class="section dark-section">
@@ -294,140 +469,98 @@
       <div class="section-heading light-heading">
 
         <div>
-          <p class="section-label">FROM THE BACKROOMS</p>
-          <h2>MEET THE CHARACTERS</h2>
+          <p class="section-label">
+            FROM LIMINAL FEAR
+          </p>
+
+          <h2>
+            MEET THE CHARACTERS
+          </h2>
         </div>
+
+        <a
+          class="text-link light-link"
+          href="collections.html#plushies"
+        >
+          EXPLORE PLUSHIES
+          <span>→</span>
+        </a>
 
       </div>
 
 
       <div class="character-grid">
 
-        <article class="character-card">
+        <a
+          class="character-card"
+          href="collections.html#plushies"
+        >
 
           <div class="character-art placeholder-dark">
             <span>WANDERER</span>
           </div>
 
           <div class="character-content">
-            <p>CHARACTER PLUSH</p>
-            <h3>WANDERER</h3>
+
+            <p>
+              CHARACTER COLLECTION
+            </p>
+
+            <h3>
+              WANDERER
+            </h3>
+
           </div>
 
-        </article>
+        </a>
 
 
-        <article class="character-card">
+        <a
+          class="character-card"
+          href="collections.html#plushies"
+        >
 
           <div class="character-art placeholder-dark">
             <span>BACTERIA</span>
           </div>
 
           <div class="character-content">
-            <p>CHARACTER PLUSH</p>
-            <h3>BACTERIA</h3>
+
+            <p>
+              CHARACTER COLLECTION
+            </p>
+
+            <h3>
+              BACTERIA
+            </h3>
+
           </div>
 
-        </article>
+        </a>
 
 
-        <article class="character-card">
+        <a
+          class="character-card"
+          href="collections.html#plushies"
+        >
 
           <div class="character-art placeholder-dark">
             <span>CAP'N CLARK</span>
           </div>
 
           <div class="character-content">
-            <p>CHARACTER PLUSH</p>
-            <h3>CAP'N CLARK</h3>
+
+            <p>
+              CHARACTER COLLECTION
+            </p>
+
+            <h3>
+              CAP'N CLARK
+            </h3>
+
           </div>
 
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         SHOP
-         =================================================== -->
-
-    <section class="section shop-section" id="shop">
-
-      <div class="section-heading">
-
-        <div>
-          <p class="section-label">LIMINAL FEAR</p>
-          <h2>SHOP MERCH</h2>
-        </div>
-
-      </div>
-
-
-      <div class="shop-toolbar">
-
-        <label class="shop-search">
-
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="11" cy="11" r="7"></circle>
-            <path d="M20 20L16.5 16.5"></path>
-          </svg>
-
-          <input
-            id="productSearch"
-            type="search"
-            placeholder="Search merchandise"
-            autocomplete="off"
-          >
-
-        </label>
-
-
-        <div class="filter-buttons">
-
-          <button class="filter active" data-filter="all">
-            ALL
-          </button>
-
-          <button class="filter" data-filter="plushies">
-            PLUSHIES
-          </button>
-
-          <button class="filter" data-filter="apparel">
-            APPAREL
-          </button>
-
-          <button class="filter" data-filter="stickers">
-            STICKERS
-          </button>
-
-          <button class="filter" data-filter="drinkware">
-            DRINKWARE
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <!--
-        IMPORTANT:
-        Real products will be inserted here once the Fourthwall
-        products/checkout URLs are ready.
-
-        We are intentionally NOT inventing fake products/prices.
-      -->
-
-      <div class="empty-shop-state" id="emptyShopState">
-
-        <span class="empty-symbol">LF</span>
-
-        <h3>MERCH IS ENTERING THE BACKROOMS.</h3>
-
-        <p>
-          Official Liminal Fear products will appear here.
-        </p>
+        </a>
 
       </div>
 
@@ -444,14 +577,20 @@
 
       <div class="promo-content">
 
-        <p>LIMINAL FEAR</p>
+        <p>
+          LIMINAL FEAR
+        </p>
 
         <h2>
-          SOME THINGS<br>
+          SOME THINGS
+          <br>
           FOLLOW YOU OUT.
         </h2>
 
-        <a class="button button-primary" href="#shop">
+        <a
+          class="button button-primary"
+          href="shop.html"
+        >
           ENTER THE SHOP
         </a>
 
@@ -466,13 +605,15 @@
        FOOTER
        ===================================================== -->
 
-  <footer class="footer" id="contact">
+  <footer class="footer">
 
     <div class="footer-top">
 
       <div class="footer-brand">
 
-        <h2>LIMINAL FEAR</h2>
+        <h2>
+          LIMINAL FEAR
+        </h2>
 
         <p>
           Official merchandise for Liminal Fear.
@@ -484,22 +625,51 @@
       <div class="footer-links">
 
         <div>
+
           <h3>STORE</h3>
-          <a href="#shop">Shop</a>
-          <a href="#collections">Collections</a>
+
+          <a href="shop.html">
+            Shop
+          </a>
+
+          <a href="collections.html">
+            Collections
+          </a>
+
         </div>
 
+
         <div>
+
           <h3>HELP</h3>
-          <a href="#">Contact</a>
-          <a href="#">Shipping</a>
-          <a href="#">Returns</a>
+
+          <a href="contact.html">
+            Contact
+          </a>
+
+          <a href="contact.html">
+            Support
+          </a>
+
         </div>
 
+
         <div>
-          <h3>LIMINAL FEAR</h3>
-          <a href="#">Game</a>
-          <a href="#">Discord</a>
+
+          <h3>ACCOUNT</h3>
+
+          <a href="account.html">
+            Account
+          </a>
+
+          <button
+            class="footer-discount-button"
+            id="openDiscount"
+            type="button"
+          >
+            Get 15% Off
+          </button>
+
         </div>
 
       </div>
@@ -524,10 +694,15 @@
 
   <!-- =====================================================
        CART DRAWER
-       UI ONLY FOR NOW
+
+       UI only until real commerce integration.
        ===================================================== -->
 
-  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <div
+    class="cart-backdrop"
+    id="cartBackdrop"
+  ></div>
+
 
   <aside
     class="cart-drawer"
@@ -538,9 +713,17 @@
     <div class="cart-header">
 
       <div>
-        <span class="cart-label">YOUR CART</span>
-        <h2>YOUR CART (0)</h2>
+
+        <span class="cart-label">
+          LIMINAL FEAR STORE
+        </span>
+
+        <h2>
+          YOUR CART (0)
+        </h2>
+
       </div>
+
 
       <button
         class="cart-close"
@@ -560,23 +743,133 @@
         LF
       </div>
 
-      <h3>YOUR CART IS EMPTY.</h3>
+      <h3>
+        YOUR CART IS EMPTY.
+      </h3>
 
       <p>
         Maybe something followed you here.
       </p>
 
-      <button
+      <a
         class="button button-primary"
-        id="continueShopping"
-        type="button"
+        href="shop.html"
       >
-        CONTINUE SHOPPING
-      </button>
+        EXPLORE PRODUCTS
+      </a>
 
     </div>
 
   </aside>
+
+
+  <!-- =====================================================
+       EMAIL DISCOUNT POPUP
+
+       The visual offer is built now.
+       We will only activate real discount redemption after
+       the matching promotion/email system is configured.
+       ===================================================== -->
+
+  <div
+    class="discount-backdrop"
+    id="discountBackdrop"
+  ></div>
+
+
+  <section
+    class="discount-popup"
+    id="discountPopup"
+    aria-hidden="true"
+    aria-labelledby="discountTitle"
+  >
+
+    <button
+      class="discount-close"
+      id="discountClose"
+      type="button"
+      aria-label="Close discount offer"
+    >
+      ×
+    </button>
+
+
+    <div class="discount-noise"></div>
+
+
+    <div class="discount-content">
+
+      <p class="discount-eyebrow">
+        A MESSAGE FROM THE BACKROOMS
+      </p>
+
+
+      <h2 id="discountTitle">
+
+        <span>
+          GET 15% OFF YOUR NEXT
+        </span>
+
+        <img
+          class="liminal-wordmark"
+          src="assets/liminal-wordmark.png"
+          alt="LIMINAL"
+        >
+
+        <span>
+          PURCHASE!
+        </span>
+
+      </h2>
+
+
+      <p class="discount-description">
+        Enter your email to receive store offers and
+        updates when this promotion becomes available.
+      </p>
+
+
+      <form
+        class="discount-form"
+        id="discountForm"
+      >
+
+        <label
+          class="sr-only"
+          for="discountEmail"
+        >
+          Email address
+        </label>
+
+        <input
+          id="discountEmail"
+          type="email"
+          placeholder="Enter your email"
+          autocomplete="email"
+          required
+        >
+
+        <button
+          class="button button-primary"
+          type="submit"
+        >
+          CLAIM 15% OFF
+        </button>
+
+      </form>
+
+
+      <button
+        class="discount-skip"
+        id="discountSkip"
+        type="button"
+      >
+        NO THANKS, I'LL KEEP EXPLORING
+      </button>
+
+    </div>
+
+  </section>
 
 
   <script src="script.js"></script>
